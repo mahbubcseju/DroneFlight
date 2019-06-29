@@ -46,13 +46,9 @@ class DisplayUtil:
             for point in range(len(self.sweep_points[sweep])):
                 angle_degree=self.sweep_points[sweep][point][0]
                 distance=self.sweep_points[sweep][point][1]
-
-                print(angle_degree,distance)
                 angle_redian = (math.pi * angle_degree) / 180.0
-                print(lidar_x_coordinate,lidar_y_coordinate,angle_redian,distance)
                 sweep_point_x=lidar_x_coordinate+ (distance * math.cos(angle_redian))/1000.0
                 sweep_point_y=lidar_y_coordinate+ (distance * math.sin(angle_redian))/1000.0
-                print(sweep_point_y, sweep,sweep_point_y)
                 xx.append(sweep_point_x)
                 yy.append(sweep_point_y)
 
