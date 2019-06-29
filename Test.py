@@ -1,4 +1,5 @@
 from CsvHelper import CsvHelper
+from DisplayUtil import DisplayUtil
 csv_helper=CsvHelper("points.csv","path.csv")
 path=csv_helper.read_flight_path_element()
 if len(path)!=34:
@@ -13,3 +14,7 @@ if len(points)!=34:
 else:
     for length in range(len(points)):
         print(length,len(points[length]))
+
+
+display_helper=DisplayUtil(points,path)
+display_helper.display_sweep()

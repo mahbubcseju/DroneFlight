@@ -41,7 +41,7 @@ class CsvHelper:
                 current_sweep_length = int(temp_lidar_points[ptr][1])
                 current_sweep_points=[]
                 for point in range(ptr+1,ptr+current_sweep_length+1):
-                    current_sweep_points.append(self.make_list(float(temp_lidar_points[point][0]),float(temp_lidar_points[point][0])))
+                    current_sweep_points.append(self.make_list(float(temp_lidar_points[point][0]),float(temp_lidar_points[point][1])))
 
                 ptr=ptr+current_sweep_length+1
                 lidar_points.append(current_sweep_points)
