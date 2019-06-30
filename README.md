@@ -57,20 +57,14 @@ My main target here is to provide an appropriate visualization of drone's path a
 ## How to run the code?
 
    1. To display each sweep run the following command:  
-       
-       
+      
        -  python droneflight.py --dis "LIDARDPoints.csv" "FlightPath.csv"
-        
-        
-   
-   
-   Here please put your own LIDARDPoints.csv and FlightPath.csv file.
-   2. To optimize the path please run the following command:
      
-        
+      Here please put your own LIDARDPoints.csv and FlightPath.csv file.
+   2. To optimize the path please run the following command:
+   
        - python droneflight.py --op "LIDARDPoints.csv" "FlightPath.csv" "OutputFlightPath.csv"
        
-     
-   Output will be stored in file "OutputFlightPath.csv". 
-   Here please put your own LIDARDPoints.csv, FlightPath.csv and OutputFlightPath.csv file name.
+      Output will be stored in file "OutputFlightPath.csv". Here please put your own LIDARDPoints.csv,
+      FlightPath.csv and OutputFlightPath.csv file name.
     
