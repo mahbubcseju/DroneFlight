@@ -64,3 +64,16 @@ class CsvHelper:
                 if point%2==1:
                     flight_points.append(self.make_list(float(temp_flight_points[point][0]),float(temp_flight_points[point][1])))
             return flight_points
+
+
+    def write_csv(self,data,file_name_csv):
+        with open(file_name_csv, "wb") as f:
+            writer = csv.writer(f)
+            writer.writerows(data)
+
+    def write_flight_path(self,flight_path,output_flight_csv):
+        output_flight_path=[]
+        for point  in range(len(flight_path)):
+            output_flight_path.append(self.make_list(point,1))
+            output_flight_path.append(flight_path[point])
+        self.write_csv(output_flight_path,output_flight_csv)
