@@ -19,34 +19,30 @@ My main target here is to provide an appropriate visualization of drone's path a
 
 ### 1. Display sweep
         - Read LIDAR data and flight path data from csv file.
-        - Convert LIDAR data to two dimensional list such that each row contains
-          the data of one sweep.
+        - Convert LIDAR data to two dimensional list such that each row contains the data of one sweep.
         - Iterate through  each sweep.
         - Extract the LIDAR position (x,y) from flight Path file for current sweep.
-        - Calculate all the co-ordinates (xi,yi) of current sweep boundary using
-          angle and distance by the following formula.
+        - Calculate all the co-ordinates (xi,yi) of current sweep boundary using angle and distance by the following 
+          formula.
               xi = x + distance * cos(angle)
               yi = y+  distance * sin(angle)
         - Store all the xi in a list and yi in another list.
         - Display the sweep using the two calculated list by matplotlib library.
         - Also plot the postion of LIDAR/Drone .
-        - LIDAR/Drone position is marked by  green color and sweep boundary is marked
-          by red color.
+        - LIDAR/Drone position is marked by  green color and sweep boundary is marked  by red color.
 
 #### 2. Flight Optimization
          - Read LIDAR data and flight path data from csv file.
-         - Convert LIDAR data to two dimensional list such that each row contains
-           the data of one sweep.
+         - Convert LIDAR data to two dimensional list such that each row contains the data of one sweep.
          - I traverse through the path.
-         - When  I am  at position of index i, I tried to find wheather is there any
-           way to  go at position of index j (all j such that j>i) by straight line. 
+         - When  I am  at position of index i, I tried to find wheather is there any way to  go at position of index j
+           (all j such that j>i) by straight line. 
          - For each i, we check continously upto the last ending position.
-         - When I find any position of index j which is not reachable from position
-           of index i, I don't check for the rest position after j. If position of 
-           index j is not reachable by straight line ,then I consider that position 
-           of index (j+1) is not reachable by straight line.
-         - After position of index i, I directly go to position of index position of
-           index j as position of index j is reachable from position of index  i.
+         - When I find any position of index j which is not reachable from position  of index i, I don't check for the 
+           rest position after j. If position of index j is not reachable by straight line ,then I consider that positi-
+           on of index (j+1) is not reachable by straight line.
+         - After position of index i, I directly go to position of index position of index j as position of index j is
+           reachable from position of index  i.
          - So I just ommit all the position between index i and j.
          - After that I update  i using j.
          - I insert the position of each i in a list and finally return that list.
