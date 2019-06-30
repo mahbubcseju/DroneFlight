@@ -35,15 +35,22 @@ My main target here is to provide an appropriate visualization of drone's path a
          - Read LIDAR data and flight path data from csv file.
          - Convert LIDAR data to two dimensional list such that each row contains the data of one sweep.
          - I traverse through the path.
-         - When  I am  at position of index i, I tried to find wheather is there any way to  go at position of
-           index j (all j such that j>i) by straight line. 
+         - When  I am  at position of index i, I tried to find wheather is there any way to  go at position 
+           of index j (all j such that j>i) by straight line. 
          - For each i, we check continously upto the last ending position.
-         - When I find any position of index j which is not reachable from position  of index i, I don't check
-           for the rest position after j. If position of index j is not reachable by straight line ,then I co-
-           nsider that position of index (j+1) is not reachable by straight line.
+         - When I find any position of index j which is not reachable from position  of index i, I don't
+           check for the rest position after j. If position of index j is not reachable by straight line,
+           then I consider that position of index (j+1) is not reachable by straight line.
          - After position of index i, I directly go to position of index position of index j as position of 
            index j is reachable from position of index  i.
          - So I just ommit all the position between index i and j.
          - After that I update  i using j.
          - I insert the position of each i in a list and finally return that list.
-         
+        
+## Prerequisite
+   
+   1. Python
+   2. pip package manager
+   3. matplotlib library
+      - pip install matplotlib
+ 
