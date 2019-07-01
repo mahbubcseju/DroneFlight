@@ -3,10 +3,10 @@ import matplotlib.pyplot as plot
 class DisplayUtil:
     def __init__(self,sweep_points,flight_points):
         """
-        @param sweep_points: angle and distance of each sweep
-        @param flight_points: Collection of the flight points
-
         Constructor of DisplayUtil class
+
+        @param sweep_points: A list with angle and distance of all sweep.
+        @param flight_points: Collection of the flight points.
         """
         self.sweep_points=sweep_points
         self.flight_points=flight_points
@@ -14,9 +14,13 @@ class DisplayUtil:
     def plot_sweep(self,x_axis_list,y_axis_list,sweep_number):
 
         """
-        Plot a sweep points as well as that sweep's lidar point
-        plot the lidar position with green color
-        plot the sweep's points with red color
+        This function plot a sweep boundary points as well as that sweep's lidar
+        point. Plot the lidar position with green color and Plot the sweep's points
+        with red color.
+
+        @param x_axis_list: List of x axis points of the sweep boundary points.
+        @param y_axis_list: List of y axis points of the sweep boundary points.
+        @param sweep_number: Sweep number which boundary is to be plotted.
         """
         plot.figure(sweep_number)
         plot.scatter(x_axis_list, y_axis_list, c='r')
@@ -27,15 +31,15 @@ class DisplayUtil:
 
 
         """
-        Calculate all  co-ordinates of each sweep using angle and distance based on the lidar's position
-        1. Convert the angle from degree to redian using the following formula
+        Calculate all  co-ordinates(xi,yi) of each sweep boundary using angle and distance
+        based on the lidar's position(x,y).
+        1. Convert the angle from degree to redian using the following formula.
                redian= (pi* degree)/180
-        2. then find the co-ordinate at distance d and angle e  using formula
-               x1=x+d * cos(e)
-               y1=y+d * sin(e)
-           where (x,y) is current lidar position.
-        3. Final divide
-        Then plot these co-ordinates
+        2. Then find the co-ordinate at distance d and angle e  using formula.
+               xi=x+d * cos(e)
+               yi=y+d * sin(e)
+           where (x,y) is current lidar's position.
+        3. Finally call the plot sweep function to plot these co-ordinates.
         """
         for sweep in range(len(self.sweep_points)):
             lidar_x_coordinate=self.flight_points[sweep][0]

@@ -35,9 +35,9 @@ My main target here is to provide an appropriate visualization of drone's path a
          - Read LIDAR data and flight path data from csv file.
          - Convert LIDAR data to two dimensional list such that each row contains the data of one sweep.
          - I traverse through the path.
-         - When  I am  at position of index i, I tried to find wheather is there any way to  go at position 
+         - When  I am  at position of index i, I tried to find whether is there any way to  go at position 
            of index j (all j such that j>i) by straight line. 
-         - For each i, we check continously upto the last ending position.
+         - For each i, we check continuously upto the last ending position.
          - When I find any position of index j which is not reachable from position  of index i, I don't
            check for the rest position after j. If position of index j is not reachable by straight line,
            then I consider that position of index (j+1) is not reachable by straight line.
@@ -61,10 +61,24 @@ My main target here is to provide an appropriate visualization of drone's path a
          -  python droneflight.py --dis "LIDARDPoints.csv" "FlightPath.csv"
      
       Here please put your own LIDARDPoints.csv and FlightPath.csv file.
+      To show each sweep please click cross button after showing each sweep.
+      If we click on the cross button of the figure, current sweep figure will disappear and then next one
+      will display.
+      
    2. To optimize the path please run the following command:
    
          - python droneflight.py --op "LIDARDPoints.csv" "FlightPath.csv" "OutputFlightPath.csv"
        
       Output will be stored in file "OutputFlightPath.csv". Here please put your own LIDARDPoints.csv,
       FlightPath.csv and OutputFlightPath.csv file name.
-    
+   
+   2. To test the optimize the path, please run the following command. It will display the optimized path 
+      after optimization.
+   
+         - python droneflight.py --test "LIDARDPoints.csv" "FlightPath.csv"
+       
+      Here please put your own LIDARDPoints.csv and FlightPath.csv file.
+      To show each sweep please click cross button after showing each sweep.
+      If we click on the cross button of the figure, current sweep figure will disappear and then next one 
+      will  display.
+      

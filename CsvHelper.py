@@ -3,19 +3,20 @@ import csv
 class CsvHelper:
     def __init__(self,lidar_file,flight_file):
         """
-        @param lidar_file: given or generated LIDARPoint.csv file's path
-        @param flight_file: given or generated FlightPath.csv file's path
+        This function is the constructor of CsvHelper Class.
 
-        Constructor of CsvHelper Class
+        @param lidar_file: given or generated LIDARPoint.csv file's path.
+        @param flight_file: given or generated FlightPath.csv file's path.
         """
         self.lidar_file=lidar_file
         self.flight_file=flight_file
 
     def make_list(self,x,y):
         """
+        This function creates a list of two element.
+
         @param x: An integer or float element
         @param y: An integer or float element
-
         @Return: return a list whose elements are x,y
         """
         result_list = []
@@ -25,9 +26,11 @@ class CsvHelper:
 
     def read_lidar_element(self):
         """
-        Read given or pre-generated lidar points
+        This function reads given or pre-generated lidar points and create
+        a two dimensional list of lidar point. Each row contains the point
+        of a distinct sweep.
+
         @Return lidar_points: Return a two dimensional list of lidar point.
-                              Each row contains the point of a distinct sweep
         """
         with open(self.lidar_file) as lidar_reader:
             read_lidar_point = csv.reader(lidar_reader, delimiter=',')
@@ -49,9 +52,11 @@ class CsvHelper:
 
     def read_flight_path_element(self):
         """
-        Read given or pre-generated flight path co-oridnates
+        This function reads given or pre-generated flight path co-oridnates
+        and make a two dimensional list of flight points. Each row contains
+        the points of a distinct sweep
+
         @Return flight_points: Return a two dimensional list of flight points.
-                              Each row contains the points of a distinct sweep
         """
         with open(self.flight_file) as flight_reader:
             read_flight_point = csv.reader(flight_reader, delimiter=',')
@@ -67,11 +72,29 @@ class CsvHelper:
 
 
     def write_csv(self,data,file_name_csv):
-        with open(file_name_csv, "wb") as f:
-            writer = csv.writer(f)
+        """
+        This function writes data on csv format in a csv file .
+
+        @param data: Given data which is going to be written in csv file.
+        @param file_name_csv: Csv file name in which data will be written.
+        """
+        with open(file_name_csv, "w") as file:
+            writer = csv.writer(file)
             writer.writerows(data)
 
     def write_flight_path(self,flight_path,output_flight_csv):
+        """
+        This function pre-process the flight path points and call
+        the write_csv function to write data on a given csv file.
+        In the given flight_path list, only the co-ordinates
+        are given. Sweep number are not included. So this function
+        add one additional line/list [sweep number,1] before each flight
+        co-ordinate and call write_csv to write these data on the file.
+
+        @param flight_path: Flight path points/co-ordinates
+        @param output_flight_csv: File name in which flight path points
+                                 will be written.
+        """
         output_flight_path=[]
         for point  in range(len(flight_path)):
             output_flight_path.append(self.make_list(point,1))

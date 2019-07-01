@@ -3,20 +3,40 @@ from math import sqrt
 from math import pi
 
 def length(v):
+    """
+    This function calculates the length of a given vector.
+
+    @param v: Vector representation of a 2-d coordinates
+    @Return: Returns the length of the vector.
+    """
     return sqrt(v[0]**2+v[1]**2)
+
 def dot_product(v,w):
     """
-    Calculate the dot product of two vector v and w
+    This function calculate the dot product of two vector v and w.
+
+    @param v: Vector representation of a 2-d coordinates.
+    @param w: Vector representation of a 2-d coordinates.
+    @Return: Return the dot product of v and w.
     """
     return v[0]*w[0]+v[1]*w[1]
+
 def determinant(v,w):
     """
-    Calculate the determinant of v an w
+    This function calculate the determinant of two vector v and w.
+
+    @param v: Vector representation of a 2-d coordinates.
+    @param w: Vector representation of a 2-d coordinates.
+    @Return: Return the determinant of v and w.
     """
     return v[0]*w[1]-v[1]*w[0]
 def inner_angle(v,w):
     """
-    Calculate the  angle between A and B
+    This function calculate the inner angle  between v and w.
+
+    @param v: Vector representation of a 2-d coordinates.
+    @param w: Vector representation of a 2-d coordinates.
+    @Return: Return the inner angle of v and w.
     """
     cosx=dot_product(v,w)/(length(v)*length(w))
     rad=acos(cosx) # in radians
@@ -24,7 +44,11 @@ def inner_angle(v,w):
 
 def angle_anti_clockwise(A, B):
     """
-    Calculate the anti clock-wise angle between A and B
+    Calculate the anti clock-wise angle between A and B.
+
+    @param A: Given 2-d coordinate.
+    @param B: Given 2-d coordinate.
+    @Return: Return the anti-clockwise angle between A and B.
     """
     inner=inner_angle(A,B)
     det = determinant(A,B)
@@ -35,7 +59,10 @@ def angle_anti_clockwise(A, B):
 
 def distance_a_to_b(point_A, point_B):
     """
-     Calculate the distance between A and B
+     Calculate the distance between A and B.
+    @param A: Given 2-d coordinate.
+    @param B: Given 2-d coordinate.
+    @Return: Return the distance between A and B.
     """
     difference_of_x = (point_A[0] - point_B[0])
     difference_of_y = (point_A[1] - point_B[1])
